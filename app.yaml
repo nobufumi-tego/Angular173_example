@@ -11,6 +11,10 @@ handlers:
   # URLの正規表現はstatic_dirでは使用でできないので
   # static_filesを使用します
   - url: /(.*)
-    static_files: dist/my-app/\1
-    upload: dist/my-app/(.*)
+    static_files: dist/my-app/browser/\1
+    upload: dist/my-app/browser/(.*)
     secure: always
+
+  # SSR 用のハンドラを追加
+  - url: /api/.*
+    script: auto
